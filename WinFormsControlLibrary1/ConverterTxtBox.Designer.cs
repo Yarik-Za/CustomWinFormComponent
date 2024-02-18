@@ -31,7 +31,7 @@
             textBoxCM = new TextBox();
             textBoxInch = new TextBox();
             labelCM = new Label();
-            label2 = new Label();
+            labelInch = new Label();
             SuspendLayout();
             // 
             // textBoxCM
@@ -46,6 +46,7 @@
             // 
             // textBoxInch
             // 
+            textBoxInch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxInch.Location = new Point(3, 76);
             textBoxInch.Name = "textBoxInch";
             textBoxInch.Size = new Size(155, 23);
@@ -55,6 +56,7 @@
             // 
             // labelCM
             // 
+            labelCM.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelCM.AutoSize = true;
             labelCM.Location = new Point(45, 4);
             labelCM.Name = "labelCM";
@@ -62,27 +64,26 @@
             labelCM.TabIndex = 2;
             labelCM.Text = "centimeters";
             // 
-            // label2
+            // labelInch
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(56, 58);
-            label2.Name = "label2";
-            label2.Size = new Size(41, 15);
-            label2.TabIndex = 3;
-            label2.Text = "inches";
+            labelInch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelInch.AutoSize = true;
+            labelInch.Location = new Point(56, 58);
+            labelInch.Name = "labelInch";
+            labelInch.Size = new Size(41, 15);
+            labelInch.TabIndex = 3;
+            labelInch.Text = "inches";
             // 
             // ConverterTxtBox
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
-            Controls.Add(label2);
+            AutoScaleMode = AutoScaleMode.None;
+            Controls.Add(labelInch);
             Controls.Add(labelCM);
             Controls.Add(textBoxInch);
             Controls.Add(textBoxCM);
             Name = "ConverterTxtBox";
             Size = new Size(162, 102);
-            SizeChanged += ConverterTxtBox_SizeChanged;
+            Resize += ConverterTxtBox_Resize;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -92,6 +93,6 @@
         private TextBox textBoxCM;
         private TextBox textBoxInch;
         private Label labelCM;
-        private Label label2;
+        private Label labelInch;
     }
 }

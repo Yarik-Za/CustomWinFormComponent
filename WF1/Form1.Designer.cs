@@ -33,7 +33,6 @@
             // 
             // convCmToInch
             // 
-            convCmToInch.AutoSize = true;
             convCmToInch.CM = 1D;
             convCmToInch.Inch = 0.39370078740157477D;
             convCmToInch.Location = new Point(10, 7);
@@ -46,14 +45,13 @@
             AutoScaleMode = AutoScaleMode.None;
             AutoSize = true;
             AutoValidate = AutoValidate.Disable;
-            ClientSize = new Size(172, 120);
+            ClientSize = new Size(168, 109);
             Controls.Add(convCmToInch);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Lab_1";
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

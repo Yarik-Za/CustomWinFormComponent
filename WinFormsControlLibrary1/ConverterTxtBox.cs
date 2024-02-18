@@ -11,6 +11,8 @@
             InitializeComponent();
             textBoxCM.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right;
             textBoxInch.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right;
+
+            this.Resize += ConverterTxtBox_Resize;
         }
 
         public double CM
@@ -84,7 +86,7 @@
             try
             {
                 // Перевірка, чи є введений символ цифрою, крапкою або комою, або клавішею Backspace
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ','&&e.KeyChar!='E' && e.KeyChar != '+' && e.KeyChar != '-')
                 {
                     // Якщо введений символ не є цифрою, крапкою, комою або Backspace, скасувати введення
                     e.Handled = true;
@@ -121,23 +123,45 @@
         //    textBoxInch.Location = new Point(textBoxLeft + textBoxWidth, textBoxTop);
         //}
 
-        private void ConverterTxtBox_SizeChanged(object sender, EventArgs e)
+        //private void ConverterTxtBox_SizeChanged(object sender, EventArgs e)
+        //{
+        //    // Вычисляем новую высоту для текстовых полей
+        //    int textBoxHeight = (this.Height - 10) / 3; // Разделяем высоту на три части: для текстовых полей и промежутков между ними
+
+        //    // Устанавливаем новые размеры для текстовых полей
+        //    textBoxCM.Size = new Size(textBoxCM.Width, textBoxHeight);
+        //    textBoxInch.Size = new Size(textBoxInch.Width, textBoxHeight);
+
+        //    // Вычисляем позицию для первого текстового поля (высота на промежуток между текстовыми полями)
+        //    int textBoxTop = 5; // Начальная позиция по вертикали
+
+        //    // Устанавливаем новые позиции для текстовых полей и лейбла
+        //    labelCM.Location = new Point(labelCM.Left, textBoxTop);
+        //    textBoxCM.Location = new Point(textBoxCM.Left, textBoxTop + labelCM.Height);
+        //    textBoxInch.Location = new Point(textBoxInch.Left, textBoxTop + labelCM.Height + textBoxHeight);
+        //}
+
+        private void ConverterTxtBox_Resize(object sender, EventArgs e)
         {
-            // Вычисляем новую высоту для текстовых полей
-            int textBoxHeight = (this.Height - 10) / 3; // Разделяем высоту на три части: для текстовых полей и промежутков между ними
-
-            // Устанавливаем новые размеры для текстовых полей
-            textBoxCM.Size = new Size(textBoxCM.Width, textBoxHeight);
-            textBoxInch.Size = new Size(textBoxInch.Width, textBoxHeight);
-
-            // Вычисляем позицию для первого текстового поля (высота на промежуток между текстовыми полями)
-            int textBoxTop = 5; // Начальная позиция по вертикали
-
-            // Устанавливаем новые позиции для текстовых полей и лейбла
-            labelCM.Location = new Point(labelCM.Left, textBoxTop);
-            textBoxCM.Location = new Point(textBoxCM.Left, textBoxTop + labelCM.Height);
-            textBoxInch.Location = new Point(textBoxInch.Left, textBoxTop + labelCM.Height + textBoxHeight);
+            // Размеры компонента изменились, пересчитываем размеры и позиции внутренних элементов
+            UpdateInternalElements();
         }
+        private void UpdateInternalElements()
+        {
+            // Определяем высоту текстового поля как 1/3 высоты компонента
+            int textBoxHeight = this.Height / 3;
 
+            // Устанавливаем размер и позицию для лейблов
+            labelCM.Location = new Point((this.Width - labelCM.Width) / 2, 5);
+            labelInch.Location = new Point((this.Width - labelInch.Width) / 2, textBoxHeight + 10);
+
+            // Устанавливаем размеры для текстовых полей
+            textBoxCM.Size = new Size(this.Width, textBoxHeight);
+            textBoxInch.Size = new Size(this.Width, textBoxHeight);
+
+            // Устанавливаем позиции для текстовых полей
+            textBoxCM.Location = new Point(0, labelCM.Bottom);
+            textBoxInch.Location = new Point(0, labelInch.Bottom + 5);
+        }
     }
 }
