@@ -47,6 +47,7 @@
             AutoValidate = AutoValidate.Disable;
             ClientSize = new Size(168, 109);
             Controls.Add(convCmToInch);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Lab_1";

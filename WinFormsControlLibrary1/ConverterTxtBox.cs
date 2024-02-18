@@ -65,28 +65,22 @@
             ErrorOccurred?.Invoke(this, new ErrorEventArgs(ex));
         }
 
-        private void textBoxCM_TextChanged(object sender, EventArgs e)
-        {
-            if (double.TryParse(textBoxCM.Text, out double newCM))
-            {
-                CM = newCM;
-            }
-        }
-
-        private void textBoxInch_TextChanged(object sender, EventArgs e)
-        {
-            if (double.TryParse(textBoxInch.Text, out double newInch))
-            {
-                Inch = newInch;
-            }
-        }
-
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
+                TextBox textBox = sender as TextBox;
+
+                // Проверка на ввод минуса в начале строки
+                if (e.KeyChar == '-' && textBox.SelectionStart == 0)
+                {
+                    e.Handled = true; // Отменяем ввод
+                    throw new Exception("Negative numbers are not allowed.");
+                }
+
+
                 // Перевірка, чи є введений символ цифрою, крапкою або комою, або клавішею Backspace
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ','&&e.KeyChar!='E' && e.KeyChar != '+' && e.KeyChar != '-')
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',' && e.KeyChar != 'E' && e.KeyChar != '+' && e.KeyChar != '-')
                 {
                     // Якщо введений символ не є цифрою, крапкою, комою або Backspace, скасувати введення
                     e.Handled = true;
@@ -125,6 +119,49 @@
             // Устанавливаем позиции для текстовых полей
             textBoxCM.Location = new Point(0, labelCM.Bottom);
             textBoxInch.Location = new Point(0, labelInch.Bottom + 5);
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            try
+            {
+                // Попробуйте распарсить введенное значение как число
+                double value = double.Parse(textBox.Text);
+
+                // Проверяем, если число меньше 0, выводим сообщение об ошибке
+                if (value < 0)
+                {
+                    throw new Exception("Negative numbers are not allowed.");
+                }
+
+                // Обработка для поля CM
+                if (textBox == textBoxCM)
+                {
+                    CM = value;
+                }
+                // Обработка для поля Inch
+                else if (textBox == textBoxInch)
+                {
+                    Inch = value;
+                }
+            }
+            catch (FormatException)
+            {
+                // Выводим сообщение об ошибке, если введенное значение не является числом
+                OnErrorOccurred(new Exception("Invalid input. Please enter a valid number."));
+            }
+            catch (Exception ex)
+            {
+                // Выводим сообщение об ошибке
+                OnErrorOccurred(ex);
+            }
+            finally
+            {
+                textBoxCM.Clear();
+                textBoxInch.Clear();
+            }
         }
     }
 }

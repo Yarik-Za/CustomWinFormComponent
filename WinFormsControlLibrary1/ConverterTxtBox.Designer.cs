@@ -41,7 +41,7 @@
             textBoxCM.Name = "textBoxCM";
             textBoxCM.Size = new Size(155, 23);
             textBoxCM.TabIndex = 0;
-            textBoxCM.TextChanged += textBoxCM_TextChanged;
+            textBoxCM.TextChanged += textBox_TextChanged;
             textBoxCM.KeyPress += textBox_KeyPress;
             // 
             // textBoxInch
@@ -51,7 +51,7 @@
             textBoxInch.Name = "textBoxInch";
             textBoxInch.Size = new Size(155, 23);
             textBoxInch.TabIndex = 1;
-            textBoxInch.TextChanged += textBoxInch_TextChanged;
+            textBoxInch.TextChanged += textBox_TextChanged;
             textBoxInch.KeyPress += textBox_KeyPress;
             // 
             // labelCM

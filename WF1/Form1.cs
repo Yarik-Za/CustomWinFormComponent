@@ -28,7 +28,7 @@ namespace WF1
         private void ConvCmToInch_ErrorOccurred(object sender, ErrorEventArgs e)
         {
             // Получаем информацию об ошибке из аргументов события
-            Exception error = e.GetException(); // Изменение здесь
+            Exception error = e.GetException(); 
 
             // Обрабатываем ошибку
             MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
