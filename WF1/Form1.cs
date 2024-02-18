@@ -16,12 +16,6 @@ namespace WF1
 
             // Подписываемся на событие ErrorOccurred компонента
             convCmToInch.ErrorOccurred += ConvCmToInch_ErrorOccurred;
-
-            try
-            {
-
-            }
-            catch (Exception ex) { MessageBox.Show(ex.ToString(), "Error"); }
         }
 
         // Метод для обработки события ErrorOccurred

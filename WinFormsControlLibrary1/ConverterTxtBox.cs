@@ -71,13 +71,13 @@
             {
                 TextBox textBox = sender as TextBox;
 
+
                 // Проверка на ввод минуса в начале строки
-                if (e.KeyChar == '-' && textBox.SelectionStart == 0)
+                if (e.KeyChar == '-' && (textBox.Text.Length == 0 || textBox.SelectionStart != 0))
                 {
                     e.Handled = true; // Отменяем ввод
                     throw new Exception("Negative numbers are not allowed.");
                 }
-
 
                 // Перевірка, чи є введений символ цифрою, крапкою або комою, або клавішею Backspace
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',' && e.KeyChar != 'E' && e.KeyChar != '+' && e.KeyChar != '-')
@@ -127,6 +127,13 @@
 
             try
             {
+                // Проверяем, пусто ли текстовое поле
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    // Если поле пустое, просто завершаем обработку
+                    return;
+                }
+
                 // Попробуйте распарсить введенное значение как число
                 double value = double.Parse(textBox.Text);
 
@@ -160,11 +167,7 @@
                     OnErrorOccurred(ex);
                 }
             }
-            finally
-            {
-                textBoxCM.Clear();
-                textBoxInch.Clear();
-            }
+            
         }
     }
 }
