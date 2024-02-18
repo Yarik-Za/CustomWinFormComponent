@@ -104,43 +104,6 @@
             catch (Exception ex) { OnErrorOccurred(ex); }
         }
 
-        //private void ConverterTxtBox_SizeChanged(object sender, EventArgs e)
-        //{
-        //    // Вычисляем новые размеры внутренних элементов
-        //    int textBoxWidth = (this.Width - 10) / 2; // Разделяем ширину на два для двух текстовых полей
-        //    int textBoxHeight = this.Height - 10; // Задаем высоту текстовых полей
-
-        //    // Устанавливаем новые размеры для внутренних элементов
-        //    textBoxCM.Size = new Size(textBoxWidth, textBoxHeight);
-        //    textBoxInch.Size = new Size(textBoxWidth, textBoxHeight);
-
-        //    // Вычисляем позиции для размещения в центре
-        //    int textBoxLeft = (this.Width - textBoxWidth * 2) / 2;
-        //    int textBoxTop = (this.Height - textBoxHeight) / 2;
-
-        //    // Устанавливаем новые позиции для внутренних элементов
-        //    textBoxCM.Location = new Point(textBoxLeft, textBoxTop);
-        //    textBoxInch.Location = new Point(textBoxLeft + textBoxWidth, textBoxTop);
-        //}
-
-        //private void ConverterTxtBox_SizeChanged(object sender, EventArgs e)
-        //{
-        //    // Вычисляем новую высоту для текстовых полей
-        //    int textBoxHeight = (this.Height - 10) / 3; // Разделяем высоту на три части: для текстовых полей и промежутков между ними
-
-        //    // Устанавливаем новые размеры для текстовых полей
-        //    textBoxCM.Size = new Size(textBoxCM.Width, textBoxHeight);
-        //    textBoxInch.Size = new Size(textBoxInch.Width, textBoxHeight);
-
-        //    // Вычисляем позицию для первого текстового поля (высота на промежуток между текстовыми полями)
-        //    int textBoxTop = 5; // Начальная позиция по вертикали
-
-        //    // Устанавливаем новые позиции для текстовых полей и лейбла
-        //    labelCM.Location = new Point(labelCM.Left, textBoxTop);
-        //    textBoxCM.Location = new Point(textBoxCM.Left, textBoxTop + labelCM.Height);
-        //    textBoxInch.Location = new Point(textBoxInch.Left, textBoxTop + labelCM.Height + textBoxHeight);
-        //}
-
         private void ConverterTxtBox_Resize(object sender, EventArgs e)
         {
             // Размеры компонента изменились, пересчитываем размеры и позиции внутренних элементов
