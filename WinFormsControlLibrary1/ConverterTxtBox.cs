@@ -154,8 +154,11 @@
             }
             catch (Exception ex)
             {
-                // Выводим сообщение об ошибке
-                OnErrorOccurred(ex);
+                // Выводим сообщение об ошибке только если это не отрицательное число
+                if (ex.Message != "Negative numbers are not allowed.")
+                {
+                    OnErrorOccurred(ex);
+                }
             }
             finally
             {
