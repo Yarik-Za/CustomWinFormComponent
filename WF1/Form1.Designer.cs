@@ -38,9 +38,8 @@
             convCmToInch.Inch = 0.39370078740157477D;
             convCmToInch.Location = new Point(10, 7);
             convCmToInch.Name = "convCmToInch";
-            convCmToInch.Size = new Size(152, 102);
+            convCmToInch.Size = new Size(150, 102);
             convCmToInch.TabIndex = 0;
-            convCmToInch.SizeChanged += convCmToInch_SizeChanged;
             // 
             // Lab_1
             // 

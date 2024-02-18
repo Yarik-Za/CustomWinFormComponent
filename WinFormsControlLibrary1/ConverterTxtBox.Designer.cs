@@ -30,7 +30,7 @@
         {
             textBoxCM = new TextBox();
             textBoxInch = new TextBox();
-            label1 = new Label();
+            labelCM = new Label();
             label2 = new Label();
             SuspendLayout();
             // 
@@ -53,14 +53,14 @@
             textBoxInch.TextChanged += textBoxInch_TextChanged;
             textBoxInch.KeyPress += textBox_KeyPress;
             // 
-            // label1
+            // labelCM
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(45, 4);
-            label1.Name = "label1";
-            label1.Size = new Size(69, 15);
-            label1.TabIndex = 2;
-            label1.Text = "centimeters";
+            labelCM.AutoSize = true;
+            labelCM.Location = new Point(45, 4);
+            labelCM.Name = "labelCM";
+            labelCM.Size = new Size(69, 15);
+            labelCM.TabIndex = 2;
+            labelCM.Text = "centimeters";
             // 
             // label2
             // 
@@ -77,11 +77,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(labelCM);
             Controls.Add(textBoxInch);
             Controls.Add(textBoxCM);
             Name = "ConverterTxtBox";
             Size = new Size(162, 102);
+            SizeChanged += ConverterTxtBox_SizeChanged;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,7 +91,7 @@
 
         private TextBox textBoxCM;
         private TextBox textBoxInch;
-        private Label label1;
+        private Label labelCM;
         private Label label2;
     }
 }
