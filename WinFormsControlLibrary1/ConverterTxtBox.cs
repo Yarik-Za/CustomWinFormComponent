@@ -78,9 +78,8 @@
                     throw new Exception("Negative numbers are not allowed.");
                 }
 
-
                 // Перевірка, чи є введений символ цифрою, крапкою або комою, або клавішею Backspace
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',' && e.KeyChar != 'E' && e.KeyChar != '+' && e.KeyChar != '-')
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != 'E' && e.KeyChar != '+' && e.KeyChar != '-')
                 {
                     // Якщо введений символ не є цифрою, крапкою, комою або Backspace, скасувати введення
                     e.Handled = true;
@@ -88,7 +87,7 @@
                 }
 
                 // Перевірка, чи введений символ - крапка або кома, і чи вони вже присутні у тексті
-                if ((e.KeyChar == '.' || e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf('.') > -1 || (sender as TextBox).Text.IndexOf(',') > -1))
+                if (e.KeyChar == ','&&  (sender as TextBox).Text.IndexOf(',') > -1)
                 {
                     // Якщо введено більше однієї крапки або коми, скасувати введення
                     e.Handled = true;

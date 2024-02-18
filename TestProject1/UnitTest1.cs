@@ -1,7 +1,7 @@
-namespace UserControlUTest
+namespace TestProject1
 {
     [TestClass]
-    public class UnitTests
+    public class UnitTest1
     {
         [TestMethod]
         public void TestMethod1()
