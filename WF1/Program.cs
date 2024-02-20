@@ -1,4 +1,4 @@
-namespace WF1
+namespace Lab_1_Form
 {
     internal static partial class Program
     {

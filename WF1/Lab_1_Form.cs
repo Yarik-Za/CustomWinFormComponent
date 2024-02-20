@@ -1,13 +1,12 @@
 using ConverterTxtBoxLibrary;
 
-namespace WF1
+namespace Lab_1_Form
 {
     public partial class Lab_1 : Form
     {
         public Lab_1()
         {
             InitializeComponent();
-
 
             this.ControlBox = true; // Включаем элементы управления окна
             this.MinimizeBox = false; // Скрываем кнопку "Свернуть"
