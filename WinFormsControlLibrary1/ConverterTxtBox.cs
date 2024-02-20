@@ -87,7 +87,7 @@
                 }
 
                 // Перевірка, чи введений символ - крапка або кома, і чи вони вже присутні у тексті
-                if (e.KeyChar == ','&&  (sender as TextBox).Text.IndexOf(',') > -1)
+                if (e.KeyChar == ',' && (sender as TextBox).Text.IndexOf(',') > -1)
                 {
                     // Якщо введено більше однієї крапки або коми, скасувати введення
                     e.Handled = true;
@@ -123,6 +123,15 @@
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
+
+            // Проверяем, не пустое ли значение в текстовом поле
+            if (string.IsNullOrEmpty(textBox.Text))
+            {
+                textBoxCM.Clear();
+
+                textBoxInch.Clear();
+                return;
+            }
 
             try
             {
