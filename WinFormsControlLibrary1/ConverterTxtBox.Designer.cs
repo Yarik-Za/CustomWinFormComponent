@@ -39,7 +39,7 @@
             textBoxCM.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxCM.Location = new Point(3, 22);
             textBoxCM.Name = "textBoxCM";
-            textBoxCM.Size = new Size(155, 23);
+            textBoxCM.Size = new Size(156, 23);
             textBoxCM.TabIndex = 0;
             textBoxCM.TextChanged += textBox_TextChanged;
             textBoxCM.KeyPress += textBox_KeyPress;
@@ -49,7 +49,7 @@
             textBoxInch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxInch.Location = new Point(3, 76);
             textBoxInch.Name = "textBoxInch";
-            textBoxInch.Size = new Size(155, 23);
+            textBoxInch.Size = new Size(156, 23);
             textBoxInch.TabIndex = 1;
             textBoxInch.TextChanged += textBox_TextChanged;
             textBoxInch.KeyPress += textBox_KeyPress;
@@ -82,7 +82,7 @@
             Controls.Add(textBoxInch);
             Controls.Add(textBoxCM);
             Name = "ConverterTxtBox";
-            Size = new Size(162, 102);
+            Size = new Size(163, 105);
             Resize += ConverterTxtBox_Resize;
             ResumeLayout(false);
             PerformLayout();
